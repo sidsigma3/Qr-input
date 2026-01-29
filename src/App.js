@@ -4,6 +4,8 @@ import "./App.css";
 function App() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState("");
+  const [processType, setProcessType] = useState("");
+
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -41,6 +43,21 @@ function App() {
             className="preview"
           />
         )}
+
+         <label className="label">Select Process</label>
+          <select
+            value={processType}
+            onChange={(e) => setProcessType(e.target.value)}
+            className="input"
+            required
+            style={{width:'100%'}}
+          >
+            <option value="">Select an option</option>
+            <option value="Inbound">Inbound</option>
+            <option value="Unload to GR Stage area">Unload to GR Stage area</option>
+            <option value="Putaway-1">Putaway -1</option>
+            <option value="Putaway-2">Putaway -2</option>
+          </select>
 
         {/* Text Input */}
         <label className="label">Enter Text</label>
